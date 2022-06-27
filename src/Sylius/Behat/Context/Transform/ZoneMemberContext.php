@@ -35,7 +35,7 @@ final class ZoneMemberContext implements Context
         CountryNameConverterInterface $countryNameConverter,
         RepositoryInterface $provinceRepository,
         RepositoryInterface $zoneRepository,
-        RepositoryInterface $zoneMemberRepository
+        RepositoryInterface $zoneMemberRepository,
     ) {
         $this->countryNameConverter = $countryNameConverter;
         $this->provinceRepository = $provinceRepository;
@@ -96,7 +96,7 @@ final class ZoneMemberContext implements Context
         $zoneMember = $this->zoneMemberRepository->findOneBy(['code' => $code]);
         Assert::notNull(
             $zoneMember,
-            sprintf('Zone member with code %s does not exist.', $code)
+            sprintf('Zone member with code %s does not exist.', $code),
         );
 
         return $zoneMember;
@@ -119,7 +119,7 @@ final class ZoneMemberContext implements Context
         $province = $this->provinceRepository->findOneBy(['name' => $name]);
         Assert::notNull(
             $province,
-            sprintf('Province with name %s does not exist.', $name)
+            sprintf('Province with name %s does not exist.', $name),
         );
 
         return $province;
@@ -137,7 +137,7 @@ final class ZoneMemberContext implements Context
         $zone = $this->zoneRepository->findOneBy(['name' => $name]);
         Assert::notNull(
             $zone,
-            sprintf('Zone with name %s does not exist.', $name)
+            sprintf('Zone with name %s does not exist.', $name),
         );
 
         return $zone;
